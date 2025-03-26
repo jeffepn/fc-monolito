@@ -1,7 +1,7 @@
-import Address from "../../@shared/domain/value-object/address";
-import Id from "../../@shared/domain/value-object/id.value-object";
-import Invoice from "../domain/invoice";
-import InvoiceItem from "../domain/invoice-item";
+import Address from "../../../@shared/domain/value-object/address";
+import Id from "../../../@shared/domain/value-object/id.value-object";
+import Invoice from "../../domain/invoice";
+import InvoiceItem from "../../domain/invoice-item";
 import FindInvoiceUseCase from "./find.usecase";
 
 const invoiceItem1 = new InvoiceItem({
