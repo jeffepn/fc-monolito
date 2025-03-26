@@ -8,34 +8,36 @@ import InvoiceRepostiory from "./invoice.repository";
 import InvoiceItemModel from "./invoice-item.model";
 
 const createInvoice = () => {
-    InvoiceModel.create({
-        id: "1",
-        name: 'Invoice 1',
-        document: '123.456.789-99',
-        street: 'Street any',
-        number: '123',
-        complement: 'apt 2',
-        city: 'São Paulo',
-        state: 'SP',
-        zipcode: '11909-789',
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        items: [
-            {
-                id: '1',
-                name: "Item 1",
-                price: 60.50
-            },
-            {
-                id: '2',
-                name: "Item 2",
-                price: 120.30
-            }
-        ]
-    },
+    InvoiceModel.create(
+        {
+            id: "1",
+            name: 'Invoice 1',
+            document: '123.456.789-99',
+            street: 'Street any',
+            number: '123',
+            complement: 'apt 2',
+            city: 'São Paulo',
+            state: 'SP',
+            zipcode: '11909-789',
+            createdAt: new Date(),
+            updatedAt: new Date(),
+            items: [
+                {
+                    id: '1',
+                    name: "Item 1",
+                    price: 60.50
+                },
+                {
+                    id: '2',
+                    name: "Item 2",
+                    price: 120.30
+                }
+            ]
+        },
         {
             include: [{ model: InvoiceItemModel }],
-        });;
+        }
+    );
 };
 
 describe("InvoiceRepository test", () => {
@@ -119,7 +121,7 @@ describe("InvoiceRepository test", () => {
                 invoice_id: customerModel.id
             }
         });
-        
+
         // Check Invoice result
         expect(result.id.id).toBe(invoice.id.id);
         expect(result.name).toBe(invoice.name);
